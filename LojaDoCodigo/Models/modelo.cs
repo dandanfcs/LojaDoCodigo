@@ -26,9 +26,9 @@ namespace CasaDoCodigo.Models
         [Required]
         public string Nome { get; private set; }
         [Required]
-        public decimal Preco { get; private set; }
+        public float Preco { get; private set; }
 
-        public Produto(string codigo, string nome, decimal preco)
+        public Produto(string codigo, string nome, float preco)
         {
             this.Codigo = codigo;
             this.Nome = nome;

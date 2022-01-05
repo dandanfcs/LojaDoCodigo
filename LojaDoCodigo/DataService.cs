@@ -3,6 +3,7 @@ using LojaDoCodigo.Repositories;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace LojaDoCodigo
 {
@@ -24,9 +25,7 @@ namespace LojaDoCodigo
             List<Livro> livros = GetLivros();
 
             produtoRepository.SaveProdutos(livros);
-        }
-
-       
+        }   
 
         private static List<Livro> GetLivros()
         {
