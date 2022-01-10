@@ -31,8 +31,14 @@ namespace LojaDoCodigo
                     builder => builder.MigrationsAssembly("LojaDoCodigo")));
             //Parametros de UseMySql(var 1, var 2) -> Nome da classe de conexao com DbContext e nome do projeto Assembly
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<ICadastroRepository, CadastroRepository>();
+            services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +56,7 @@ namespace LojaDoCodigo
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
@@ -59,7 +66,7 @@ namespace LojaDoCodigo
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Pedido}/{action=Carrossel}/{id?}");
+                    pattern: "{controller=Pedido}/{action=Carrossel}/{codigo?}");
             });
 
            // serviceProvider.GetService<IDataService>().InicializarDB();
