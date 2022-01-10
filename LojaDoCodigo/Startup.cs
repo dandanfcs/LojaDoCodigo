@@ -33,6 +33,7 @@ namespace LojaDoCodigo
 
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddHttpContextAccessor();
 
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();

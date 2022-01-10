@@ -72,14 +72,14 @@ namespace CasaDoCodigo.Models
         [Required]
         public int Quantidade { get; private set; }
         [Required]
-        public decimal PrecoUnitario { get; private set; }
+        public float PrecoUnitario { get; private set; }
 
         public ItemPedido()
         {
 
         }
 
-        public ItemPedido(Pedido pedido, Produto produto, int quantidade, decimal precoUnitario)
+        public ItemPedido(Pedido pedido, Produto produto, int quantidade, float precoUnitario)
         {
             Pedido = pedido;
             Produto = produto;
